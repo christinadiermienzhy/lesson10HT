@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+</head>
+<body>
+	<script type="text/javascript">
+//Вам нужно, написать функцию, которая принимает 1 параметр. При первом вызове, она его запоминает, при втором — суммирует переданый параметр с тем, что передали первый раз и тд. Всё это с замыканиями, например: sum(3) = 3 sum(5) = 8 sum(20) = 28
+		 
+		function testAccum (){
+			var accum=0;
+			 return function (x){
+			 	var param=x||0;
+			 	return accum+=param;
+
+			 }
+		}
+		var resultAccum=testAccum();
+		resultAccum(7);
+		resultAccum(3);
+		resultAccum(11);
+		//console.log(resultAccum());
+
+//Возьмите счетчик, который мы писали в классе и добавьте ему возможность задавать начальное значение и шаг счетчика.
+
+/*
+		function counter(){
+			var index=0;
+			return function (){
+				return ++index;
+			}
+		}
+		var counterOne=counter();
+		counterOne();
+		counterOne();
+		counterOne();
+		console.log(counterOne());
+*/
+
+		function counter(setIndex, setStep){
+			var index=setIndex||0;
+			var step=setStep||1;
+			return function (){
+				return index+=step;
+			}
+		}
+		var counterOne=counter(100,5);
+		counterOne();
+		counterOne();
+		counterOne();
+		console.log(counterOne());
+	</script>
+</body>
+</html>
